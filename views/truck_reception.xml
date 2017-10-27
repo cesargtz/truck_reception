@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record model="ir.ui.view" id="truck_reception_form_view">
+            <field name="name">truck.reception.form</field>
+            <field name="model">truck.reception</field>
+            <field name="arch" type="xml">
+                <form string="Truck Reception Form">
+                    <field name="contract_state" invisible="1"/>
+                    <header>
+                        <button name="weight_input" type="object" string="Peso Entrada" states="weight_input" class="oe_highlight"/>
+                        <button name="weight_output" type="object" string="Peso Salida" states="weight_output" class="oe_highlight"/>
+                        <button name="fun_transfer" type="object" string="Transfer" class="oe_highlight"
+                            	groups="truck_reception.group_truck_transfer" attrs="{'invisible': ['|', ('contract_state', 'in', ['except_picking']), '|', ('state', 'not in', ['done']), ('stock_picking_id', '!=', False)]}"/>
+                        <field name="state" widget="statusbar" readonly="1"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <label string="Truck Reception "/>
+                                <field name="name" class="oe_inline" readonly="1"/>
+                            </h1>
+                        </div>
+
+                            <group>
+                                <group col="1">
+                                   <group col="3">
+                                    <field name="contract_id" required="1" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
+                                    <field name="contract_type" nolabel="1" class="oe_inline"/>
+                                    <field name="auxiliary_contract" readonly="1"/>
+
+                                   </group>
+                                   <group>
+                                      <field name="partner_id"/>
+                                       <field name="street2" string="Campo"/>
+                                       <field name="owner_id" />
+                                   </group>
+                                </group>
+                                <group >
+				                    <field name="date" string="Fecha" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
+                                   <field name="driver" required="1" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
+                                  <field name="car_plates" required="1" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
+                                  <field name="flete" attrs="{'readonly':[('state', 'not in', ['done'])]}"/>
+
+                                  <field name="active" string="Activo" />
+                                </group>
+
+                            </group>
+
+                               <group col="3">
+                                 <group col="1">
+                                  <label for="hired" string="Hired"/>
+                                   <field name="hired" class="oe_inline" nolabel="1"/>
+                                  </group>
+                                <group col="1">
+                                <label for="delivered" string="Delivered"/>
+                                <field name="delivered" class="oe_inline" nolabel="1"/>
+                                </group>
+                                <group col="1">
+                                <label for="pending" string="Pending"/>
+                                <field name="pending" class="oe_inline" nolabel="1"/>
+                               </group>
+                           </group>
+
+                            <group>
+                               <field name="product_id"/>
+                               <field name="location_id" attrs="{'readonly':[('state', 'not in', ['analysis','weight_input'])], 'required':[('state', 'in', ['weight_input'])]}" style="width: 45%"/>
+                        </group>
+
+                        <button type="object" name="humidity_update" string="Update" states="analysis" class="oe_highlight"/>
+
+                        <group col="2">
+                            <group>
+
+                                    <field name="humidity_rate" string="Humedad" required="1" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
+                                    <field name="density" string="Densidad" required="1" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
+                                    <field name="temperature" string="Temperatura" required="1" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
+                            </group>
+                            <group>
+                                <field name="damage_rate" string="Daño" required="1" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
+                                <field name="break_rate" string="Quebrado" required="1" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
+                                <field name="impurity_rate" string="Impureza" required="1" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
+                            </group>
+
+                        </group>
+
+                        <group>
+                            <group col="1">
+                                <group col="2">
+                                    <field name="input_kilos" string="Kilos de entrada" required="1" attrs="{'readonly':[('state', 'not in', ['weight_input'])]}"/>
+                                </group>
+                                <group col="2">
+                                    <field name="output_kilos" string="Kilos de salida" required="1" attrs="{'readonly':[('state', 'not in', ['weight_output'])]}"/>
+                                </group>
+                                <group>
+                                    <field name="raw_kilos" string="Kilos neto"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="broken_kilos" string="Kilos quebrados"/>
+                                <field name="impure_kilos" string="Kilos impuros"/>
+                                <field name="damaged_kilos" string="Kilos dañados"/>
+                                <field name="humid_kilos" string="Kilos humedos"/>
+                                <field name="clean_kilos" string="Kilos limpios"/>
+                            </group>
+                        </group>
+
+                          <group>
+                            <field name="stock_picking_id" string="Movimiento de almacen" attrs="{'invisible': [('state', 'not in', 'done')]}"/>
+                         </group>
+
+
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="truck_reception_tree_view">
+            <field name="name">truck.reception.tree</field>
+            <field name="model">truck.reception</field>
+            <field name="arch" type="xml">
+                <tree string="Truck Reception Tree">
+                    <field name="name"/>
+                    <field name="ticket"/>
+                    <field name="contract_id"/>
+                    <field name="partner_id"/>
+                    <field name="driver"/>
+                    <field name="car_plates"/>
+                    <field name="raw_kilos" sum="raw kilos"/>
+                    <field name="clean_kilos" sum="clean kilos"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+	<record model="ir.ui.view" id="truck_reception_form_view_permissions">
+            <field name="name">truck.reception.form</field>
+            <field name="model">truck.reception</field>
+            <field name="inherit_id" ref="truck_reception_form_view"/>
+            <field name="groups_id" eval="[(6,0, [ref('group_truck_selector')])]" />
+            <field name="arch" type="xml">
+                <field name="state" position="attributes">
+                    <attribute name="clickable">1</attribute>
+                </field>
+            </field>
+        </record>
+
+	<record model="ir.ui.view" id="truck_reception_form_view_permissions_weights">
+            <field name="name">truck.reception.form</field>
+            <field name="model">truck.reception</field>
+            <field name="inherit_id" ref="truck_reception_form_view"/>
+            <field name="groups_id" eval="[(6,0, [ref('group_truck_reception_weights')])]" />
+            <field name="arch" type="xml">
+                <field name="input_kilos" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state', 'not in', ['weight_input'])]}</attribute>
+                </field>
+                <field name="output_kilos" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state', 'not in', ['weight_output'])]}</attribute>
+                </field>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="truck_reception_form_view_permissions_ship">
+            <field name="name">truck.reception.form</field>
+            <field name="model">truck.reception</field>
+            <field name="inherit_id" ref="truck_reception_form_view"/>
+            <field name="groups_id" eval="[(6,0, [ref('group_truck_reception_ship')])]" />
+            <field name="arch" type="xml">
+                <button name="fun_transfer" position="after">
+                    <button name="fun_ship" type="object" string="Finalize"
+                            attrs="{'invisible': ['|',
+                                ('contract_state', 'in', ['except_picking']),
+                                ('state', 'not in', ['done'])]}"/>
+                    </button>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="truck_reception_search_view">
+            <field name="name">truck.reception.search</field>
+            <field name="model">truck.reception</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="partner_id"/>
+                    <field name="ticket"/>
+                    <field name="contract_id"/>
+                    <field name="name"/>
+
+                    <filter name="analysis" string="Analysis" domain="[('state', '=', 'analysis')]"/>
+                    <filter name="weight_input" string="Weight input" domain="[('state', '=', 'weight_input')]"/>
+                    <filter name="unloading" string="Unloading" domain="[('state', '=', 'unloading')]"/>
+                    <filter name="weight_output" string="Weight output" domain="[('state', '=', 'weight_output')]"/>
+                    <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>
+                    <separator/>
+                    <group string="Group By">
+                        <filter name="group_by_state" string="State"
+                                context="{'group_by': 'state'}"/>
+                        <filter name="group_by_driver" string="Driver"
+                                context="{'group_by': 'driver'}"/>
+			<filter name="group_by_location" string="Ubicacion"
+                                context="{'group_by': 'location_id'}"/>
+			<filter name="group_by_contract" string="Tipo de Contrato"
+                                context="{'group_by': 'contract_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="truck_reception_list_action">
+            <field name="name">Truck Reception</field>
+            <field name="res_model">truck.reception</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first truck reception
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_action_truck_reception_form"
+            parent="vehicle_reception.menu_receptions"
+            action="truck_reception_list_action"/>
+
+</odoo>

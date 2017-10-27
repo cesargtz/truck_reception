@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+        <record model="ir.ui.view" id="purchase_order_truck_reception">
+            <field name="name">purchase.order.truck.reception</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <button name="action_view_picking" position="before">
+                    <button type="object" class="oe_highlight"
+                        name="truck_reception" string="Trucks reception"
+                        attrs="{'invisible': ['|', '|' , ('is_shipped', '=', True), ('state','not in', ('purchase','done')), ('picking_count', '=', 0)]}"/>
+                </button>
+                <notebook position="inside">
+                    <page string="Trucks reception">
+                        <field name="truck_reception_ids"/>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    
+</odoo>

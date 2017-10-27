@@ -1,0 +1,412 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* truck_reception
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-23 18:10+0000\n"
+"PO-Revision-Date: 2016-09-23 18:10+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: truck_reception
+#: model:ir.actions.act_window,help:truck_reception.truck_reception_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create the first truck reception\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_search_view
+#: selection:truck.reception,state:0
+msgid "Analysis"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,auxiliary_contract:0
+msgid "Auxiliary contract"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,break_rate:0
+msgid "Break rate"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,broken_kilos:0
+msgid "Broken kilos"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,car_plates:0
+msgid "Car plates"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,clean_kilos:0
+msgid "Clean kilos"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,contract_id:0
+msgid "Contract id"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,contract_type:0
+msgid "Contract type"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,damage_rate:0
+msgid "Damage rate"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,damaged_kilos:0
+msgid "Damaged kilos"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,damaged_location:0
+msgid "Damaged location"
+msgstr ""
+
+#. module: truck_reception
+#: help:truck.reception,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,deducted_kilos:0
+msgid "Deducted kilos"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_form_view
+#: field:truck.reception,delivered:0
+msgid "Delivered"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,density:0
+msgid "Density"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,location_id:0
+msgid "Destination"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_search_view
+#: selection:truck.reception,state:0
+msgid "Done"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,driver:0
+msgid "Driver"
+msgstr ""
+
+#. module: truck_reception
+#: model:ir.model,name:truck_reception.model_truck_reception
+msgid "Email Thread"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_form_view_permissions_ship
+msgid "Finalize"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,message_follower_ids:0
+msgid "Followers"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_form_view
+#: field:truck.reception,hired:0
+msgid "Hired"
+msgstr ""
+
+#. module: truck_reception
+#: help:truck.reception,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,humid_kilos:0
+msgid "Humid kilos"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,humidity_rate:0
+msgid "Humidity rate"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,id:0
+msgid "ID"
+msgstr ""
+
+#. module: truck_reception
+#: help:truck.reception,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,impure_kilos:0
+msgid "Impure kilos"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,impurity_rate:0
+msgid "Impurity rate"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,input_kilos:0
+msgid "Input kilos"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,message_last_post:0
+msgid "Last Message Date"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,message_ids:0
+msgid "Messages"
+msgstr ""
+
+#. module: truck_reception
+#: help:truck.reception,message_ids:0
+msgid "Messages and communication history"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,name:0
+msgid "Name"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,output_kilos:0
+msgid "Output kilos"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_form_view
+#: field:truck.reception,pending:0
+msgid "Pending"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,product_id:0
+msgid "Product id"
+msgstr ""
+
+#. module: truck_reception
+#: model:ir.model,name:truck_reception.model_purchase_order
+msgid "Purchase Order"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,raw_kilos:0
+msgid "Raw kilos"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_search_view
+#: field:truck.reception,state:0
+msgid "State"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,contract_state:0
+msgid "Status"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,stock_picking_id:0
+msgid "Stock picking id"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,street:0
+msgid "Street"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,message_summary:0
+msgid "Summary"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,partner_id:0
+msgid "Supplier"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,temperature:0
+msgid "Temperature"
+msgstr ""
+
+#. module: truck_reception
+#: help:truck.reception,contract_state:0
+msgid "The status of the purchase order or the quotation request. A request for quotation is a purchase order in a 'Draft' status. Then the order has to be confirmed by the user, the status switch to 'Confirmed'. Then the supplier must confirm the order to change the status to 'Approved'. When the purchase order is paid and received, the status becomes 'Done'. If a cancel action occurs in the invoice or in the receipt of goods, the status becomes in exception."
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,ticket:0
+msgid "Ticket"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_form_view
+msgid "Transfer"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,transgenic:0
+msgid "Transgenic"
+msgstr ""
+
+#. module: truck_reception
+#: model:ir.actions.act_window,name:truck_reception.truck_reception_list_action
+#: model:ir.ui.menu,name:truck_reception.menu_action_truck_reception_form
+#: view:truck.reception:truck_reception.truck_reception_form_view
+msgid "Truck Reception"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_form_view
+msgid "Truck Reception Form"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_tree_view
+msgid "Truck Reception Tree"
+msgstr ""
+
+#. module: truck_reception
+#: field:purchase.order,truck_reception_ids:0
+msgid "Truck reception ids"
+msgstr ""
+
+#. module: truck_reception
+#: model:res.groups,name:truck_reception.group_truck_reception
+msgid "Truck/Reception"
+msgstr ""
+
+#. module: truck_reception
+#: model:res.groups,name:truck_reception.group_truck_reception_ship
+msgid "Truck/Reception/Ship"
+msgstr ""
+
+#. module: truck_reception
+#: model:res.groups,name:truck_reception.group_truck_reception_weights
+msgid "Truck/Reception/Weights"
+msgstr ""
+
+#. module: truck_reception
+#: view:purchase.order:truck_reception.purchase_order_truck_reception
+msgid "Trucks reception"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_form_view
+msgid "Unload"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_search_view
+#: selection:truck.reception,state:0
+msgid "Unloading"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,message_unread:0
+msgid "Unread Messages"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_form_view
+msgid "Update"
+msgstr ""
+
+#. module: truck_reception
+#: field:truck.reception,website_message_ids:0
+msgid "Website Messages"
+msgstr ""
+
+#. module: truck_reception
+#: help:truck.reception,website_message_ids:0
+msgid "Website communication history"
+msgstr ""
+
+#. module: truck_reception
+#: selection:truck.reception,state:0
+msgid "Weight Input"
+msgstr ""
+
+#. module: truck_reception
+#: selection:truck.reception,state:0
+msgid "Weight Output"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_search_view
+msgid "Weight input"
+msgstr ""
+
+#. module: truck_reception
+#: view:truck.reception:truck_reception.truck_reception_search_view
+msgid "Weight output"
+msgstr ""
