@@ -47,7 +47,7 @@ class TruckReception(models.Model):
 
     @api.one
     def humidity_update(self):
-    	url = 'http://nvryecora.ddns.net:1723'
+    	url = 'http://nvryecora.ddns.net:8080'
     	response = requests.get(url)
     	json_data = json.loads(response.text)
     	self.humidity_rate = float(json_data['humedad'].strip())

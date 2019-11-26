@@ -87,10 +87,10 @@
                         <group>
                             <group col="1">
                                 <group col="2">
-                                    <field name="input_kilos" string="Kilos de entrada" required="1" attrs="{'readonly':[('state', 'not in', ['weight_input'])]}"/>
+                                    <field name="input_kilos" string="Kilos de entrada" required="1" attrs="{'readonly':[('state', 'in', ['weight_input','analysis','weight_output','done'])]}"/>
                                 </group>
                                 <group col="2">
-                                    <field name="output_kilos" string="Kilos de salida" required="1" attrs="{'readonly':[('state', 'not in', ['weight_output'])]}"/>
+                                    <field name="output_kilos" string="Kilos de salida" required="1" attrs="{'readonly':[('state', 'in', ['weight_input','analysis','weight_output','done'])]}"/>
                                 </group>
                                 <group>
                                     <field name="raw_kilos" string="Kilos neto"/>
