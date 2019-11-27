@@ -4,11 +4,17 @@ from odoo import api, fields, models, exceptions
 import requests
 import json
 
+
+class ProductSecondSequence(models.Model):
+    _inherit = 'product.template'
+
+    second_sequence = fields.Boolean(string="Sequencia extra en recepción", default=False)
 class TruckReception(models.Model):
     _inherit = ['truck', 'vehicle.reception', 'mail.thread']
     _name = 'truck.reception'
 
-    name = fields.Char('Truck reception reference', required=True, select=True, copy=False, default=lambda self: self.env['ir.sequence'].next_by_code('reg_code'), help="Unique number of the Truck reception")
+    name = fields.Char(string='Truck reception reference')
+    # name = fields.Char('Truck reception reference', required=True, select=True, copy=False, default=lambda self: self.env['ir.sequence'].next_by_code('reg_code'), help="Unique number of the Truck reception")
 
     state = fields.Selection([
         ('analysis', 'Analisis'),
@@ -24,7 +30,6 @@ class TruckReception(models.Model):
         ('90', '90'),
         ('100', '100'),
     ], 'Flete', default='0')
-
 
 
     @api.one
@@ -60,7 +65,7 @@ class TruckReception(models.Model):
         url = 'http://nvryecora.ddns.net:8081'
         response = requests.get(url)
         json_data = json.loads(response.text)
-        if json_data['id'] == self.name[-3:]:
+        if json_data['id'] == self.name[-4:]:
             self.input_kilos = float(json_data['peso_entrada'])
             self.write({'state': 'weight_output'}, 'r')
         else:
@@ -70,7 +75,7 @@ class TruckReception(models.Model):
         url = 'http://nvryecora.ddns.net:8081'
         response = requests.get(url)
         json_data = json.loads(response.text)
-        if json_data['id'] == self.name[-3:]:
+        if json_data['id'] == self.name[-4:]:
             if float(json_data['peso_salida']) > 1:
                 self.output_kilos = float(json_data['peso_salida'])
                 self.write({'state': 'done'}, 'r')
@@ -94,6 +99,12 @@ class TruckReception(models.Model):
 
     @api.model
     def create(self, vals):
+        order_id = self.env['purchase.order'].search([('id','=',vals['contract_id'])]).id
+        product_line = self.env['purchase.order.line'].search([('order_id','=',order_id)],limit=1).product_id.product_tmpl_id.second_sequence
+        if product_line:
+            vals['name'] = self.env['ir.sequence'].next_by_code('reg_code_cebada')
+        else:
+            vals['name'] = self.env['ir.sequence'].next_by_code('reg_code')
         vals['state'] = 'weight_input'
         res = super(TruckReception, self).create(vals)
         return res

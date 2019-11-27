@@ -28,7 +28,6 @@
                                     <field name="contract_id" required="1" attrs="{'readonly':[('state', 'not in', ['analysis'])]}"/>
                                     <field name="contract_type" nolabel="1" class="oe_inline"/>
                                     <field name="auxiliary_contract" readonly="1"/>
-
                                    </group>
                                    <group>
                                       <field name="partner_id"/>
@@ -63,7 +62,7 @@
                            </group>
 
                             <group>
-                               <field name="product_id"/>
+                               <field name="product_id" readonly="1"/>
                                <field name="location_id" attrs="{'readonly':[('state', 'not in', ['analysis','weight_input'])], 'required':[('state', 'in', ['weight_input'])]}" style="width: 45%"/>
                         </group>
 
@@ -226,5 +225,18 @@
             id="menu_action_truck_reception_form"
             parent="vehicle_reception.menu_receptions"
             action="truck_reception_list_action"/>
+
+
+        <!-- Inherit Product product -->
+        <record model="ir.ui.view" id="product_sequence_reception">
+            <field name="name">product.sequence.reception</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after">
+                    <field name="second_sequence"/>
+                </field>
+            </field>
+        </record>
 
 </odoo>

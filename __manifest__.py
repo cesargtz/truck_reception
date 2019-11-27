@@ -3,8 +3,7 @@
 {
     'name': 'Truck Reception',
     'version': '10.0',
-    'author': 'QX UNIT DE MÉXICO SA DE CV',
-    'website': 'http://www.qxunit.com.mx',
+    'author': 'César Gtz',
     'depends': ['truck', 'vehicle_reception'],
     'data': [
         'security/ir.model.access.csv',

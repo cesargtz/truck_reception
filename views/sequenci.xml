@@ -10,5 +10,14 @@
             <field name="implementation">no_gap</field>
             <field name='number_increment'>1</field>
         </record>
-        </data>
+    <!-- Sequence two -->
+        <record id="seq_truck_reception_DEB" model="ir.sequence">
+            <field name="name">reg</field>
+            <field name="code">reg_code_cebada</field>
+            <field name="prefix">C-TR</field>
+            <field name="padding">3</field>
+            <field name="implementation">no_gap</field>
+            <field name='number_increment'>1</field>
+        </record>
+    </data>
 </odoo>
